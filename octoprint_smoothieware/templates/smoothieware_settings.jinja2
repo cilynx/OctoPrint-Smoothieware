@@ -1,5 +1,5 @@
-<h5>{{ _('Plugin Configuration') }}</h5>
-<form class="form-horizontal">
+<h3>{{ _('Plugin Configuration') }}</h3>
+<form class="form-inline">
     <div class="control-group">
         <label class="control-label">{{ _('Block Device') }}</label>
         <div class="controls">
@@ -7,4 +7,30 @@
         </div>
     </div>
 </form>
-<h5>{{ _('Smoothieware Configuration') }}</h5>
+<h3>{{ _('Smoothieware Configuration') }}</h3>
+<button data-bind="visible: !loadedConfig() && !loadingConfig(), click: requestSmoothieConfig">Load from Smoothieboard</button>
+<button data-bind="visible: loadedConfig, click: requestSmoothieConfig">Reload from Smoothieboard</button>
+<span data-bind="visible: loadingConfig">Loading...</span>
+
+<button data-bind="visible: loadedConfig, click: requestSmoothieReset">Reset Smoothieboard to Apply Changes</button>
+
+<p>
+
+<table class="table table-striped">
+   <tbody data-bind="foreach: config">
+      <tr>
+	 <td width="1em">
+	    <span data-bind="visible: type() === 'comment', text: '#'"></span>
+	 </td>
+	 <td>
+	    <h4 data-bind="visible: type() === 'heading', text: text"></h4>
+	    <span data-bind="visible: type() === 'comment', text: text"></span>
+	    <span data-bind="if: type() === 'item'">
+	       <form class="form-inline">
+		  <span data-bind="text: text"></span> <input type="text" class="input-small" data-bind="value: value"> <span data-bind="text: description"></span> 
+	       </form>
+	    </span>
+	 </td>
+      </tr>
+   </tbody>
+</table>
