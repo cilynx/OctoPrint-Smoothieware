@@ -1,6 +1,6 @@
 # OctoPrint-Smoothieware
 
-This plugin will enable access to some of Smoothieware's specific features.
+This plugin enables access to some of Smoothieware's specific features.
 
 Phase One is a configuration editor.  Phase Two is TBD.
 
@@ -13,4 +13,4 @@ Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wik
 
 ## Configuration
 
-Not much for the plugin itself, but the Smoothieware configuration will be surfaced under this plugin's config menu.
+Not much for the plugin itself, but the Smoothieware configuration is surfaced under this plugin's config menu.
